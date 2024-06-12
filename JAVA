@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class ContarPalabra {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el texto largo:");
+        String texto = scanner.nextLine();
+
+        System.out.println("Ingrese la palabra que desea contar:");
+        String palabraBuscada = scanner.next();
+
+        int contador = 0;
+        int indice = texto.indexOf(palabraBuscada);
+
+        while (indice != -1) {
+            contador++;
+            texto = texto.substring(indice + palabraBuscada.length());
+            indice = texto.indexOf(palabraBuscada);
+        }
+
+        System.out.println("La palabra '" + palabraBuscada + "' aparece " + contador + " veces en el texto.");
+
+        scanner.close();
+    }
+}
