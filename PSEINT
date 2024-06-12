@@ -1,0 +1,29 @@
+Algoritmo ContarPalabra
+    Definir texto, palabraBuscada Como Cadena
+    Definir contador, cantidadPalabras Como Entero
+    Definir indice Como Entero
+
+    Escribir "Ingrese el texto largo:"
+    Leer texto
+
+    Escribir "Ingrese la palabra que desea contar:"
+    Leer palabraBuscada
+
+    contador <- 0
+    indice <- EncontrarPalabra(texto, palabraBuscada)
+
+    Mientras indice > 0 Hacer
+        contador <- contador + 1
+        texto <- Subcadena(texto, indice + Longitud(palabraBuscada), Longitud(texto))
+        indice <- EncontrarPalabra(texto, palabraBuscada)
+    Fin Mientras
+
+    Escribir "La palabra '", palabraBuscada, "' aparece ", contador, " veces en el texto."
+
+FinAlgoritmo
+
+Funcion EncontrarPalabra(texto, palabra) Como Entero
+    Definir posicion Como Entero
+    posicion <- Encontrar(texto, palabra)
+    Devolver posicion
+FinFuncion
